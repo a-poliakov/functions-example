@@ -1,6 +1,6 @@
 public interface Predicate<T> {
-    Predicate<?> ALWAYS_TRUE = t -> true;
-    Predicate<?> ALWAYS_FALSE = t -> false;
+    Predicate ALWAYS_TRUE = t -> true;
+    Predicate ALWAYS_FALSE = t -> false;
 
     Boolean test(T t);
 
