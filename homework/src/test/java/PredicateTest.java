@@ -4,10 +4,10 @@ import org.junit.Test;
 public class PredicateTest {
     @Test
     public void testAndOperation() {
-        Assert.assertFalse(Predicate.ALWAYS_FALSE.and(Predicate.ALWAYS_TRUE).test(0));
-        Assert.assertFalse(Predicate.ALWAYS_TRUE.and(Predicate.ALWAYS_FALSE).test(0));
-        Assert.assertFalse(Predicate.ALWAYS_FALSE.and(Predicate.ALWAYS_FALSE).test(0));
-        Assert.assertTrue(Predicate.ALWAYS_TRUE.and(Predicate.ALWAYS_TRUE).test(0));
+        Assert.assertFalse(Predicate.ALWAYS_FALSE.and(Predicate.ALWAYS_TRUE).apply(0));
+        Assert.assertFalse(Predicate.ALWAYS_TRUE.and(Predicate.ALWAYS_FALSE).apply(0));
+        Assert.assertFalse(Predicate.ALWAYS_FALSE.and(Predicate.ALWAYS_FALSE).apply(0));
+        Assert.assertTrue(Predicate.ALWAYS_TRUE.and(Predicate.ALWAYS_TRUE).apply(0));
     }
 
     private static class A {
@@ -30,8 +30,8 @@ public class PredicateTest {
     @Test
     public void testOrParametrized() {
         Predicate<B> predicate1 = b -> b.bGet() > 1;
-        predicate1.test(new B());
-        predicate1.test(new C());
+        predicate1.apply(new B());
+        predicate1.apply(new C());
 //        predicate1.test(new A());
 //
         Predicate<A> predicate2 = a -> a.get() > 1;

@@ -2,7 +2,7 @@ import java.util.Objects;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-public interface Function2<T, U, R> {
+public interface Function2<T, U, R>  {
     R apply(T t, U u);
 
     default <V> Function2<T, U, V> compose(Function1<? super R, ? extends V> after) {

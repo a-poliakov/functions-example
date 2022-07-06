@@ -11,14 +11,14 @@ public class Collections {
 
     public static <T> List<T> filter(Predicate<T> p, List<T> a) {
         return a.stream()
-                .filter(p::test)
+                .filter(p::apply)
                 .collect(Collectors.toList());
     }
 
     public static <T> List<T> takeWhile(Predicate<T> p, List<T> a) {
         List<T> result = new ArrayList<>(a.size());
         for (T a_i : a) {
-            if(!p.test(a_i)) {
+            if(!p.apply(a_i)) {
                 break;
             }
             result.add(a_i);
@@ -29,7 +29,7 @@ public class Collections {
     public static <T> List<T> takeUnless(Predicate<T> p, List<T> a) {
         List<T> result = new ArrayList<>(a.size());
         for (T a_i : a) {
-            if(p.test(a_i)) {
+            if(p.apply(a_i)) {
                 break;
             }
             result.add(a_i);
